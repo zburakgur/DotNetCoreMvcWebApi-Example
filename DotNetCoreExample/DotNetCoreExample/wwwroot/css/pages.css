@@ -1,0 +1,30 @@
+﻿.toolbarbkgnd
+{
+    background-color: azure;
+}
+
+.editsearch {
+    border: 1px solid #c2c2c2 !important;
+    border-bottom: 1px solid #c2c2c2 !important;
+    box-sizing: border-box;
+}
+
+.editsearch > div input {
+    font-size: 14px;
+    height: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none !important;
+    padding-left: 6px !important;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.editsearch > div input:focus {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none !important;
+    box-shadow: none;
+}

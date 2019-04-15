@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>.Net Core Tutorial</title>
+
+    <!-- Note: Scripts folder must be outside of view folder -->
+    <script src="/js/Application.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+        EmbedApplicationStyle('webix/codebase/webix.css', 'media="screen" charset="utf-8"');
+        EmbedApplicationScript('webix/codebase/webix.js', 'charset="utf-8"');
+    
+        EmbedApplicationStyle('pages.css');
+        EmbedApplicationScript('Strings.js', 'charset="utf-8"');
+        EmbedApplicationScript('utils/Utils.js', 'charset="utf-8"');
+        EmbedApplicationScript('pages/Login.js', 'charset="utf-8"');
+    </script>
+
+    <script type="text/javascript">
+        webix.ready(function () {
+            systemInit();
+            createLoginView();
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

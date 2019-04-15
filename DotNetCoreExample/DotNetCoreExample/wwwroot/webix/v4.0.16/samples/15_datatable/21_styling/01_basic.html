@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic styling</title>
+		<link rel="stylesheet" href="../../../codebase/webix.css" type="text/css" charset="utf-8">
+		<script src="../../../codebase/webix.js" type="text/javascript" charset="utf-8"></script>
+
+		<link rel="stylesheet" type="text/css" href="../common/samples.css">
+		<script src="../common/testdata.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class='header_comment'>Basic styling </div>
+		<div class='sample_comment'>The sample shows how to apply some style to the whole table.</div>
+		<hr>	
+		<div class='sample_comment'>Standard table</div>
+		<div id="testA"></div>
+		<hr>	
+		<div class='sample_comment'>Styled table</div>
+		<div id="testB"></div>
+
+		<style>
+		.my_style .webix_hcell{
+			background:#009966;
+			color:white;
+			font-weight:bold;
+
+		}
+		.my_style .webix_column{
+			font-style:italic;
+			background:#ddFFdd;
+		}
+        .my_style .webix_column > div{
+            border-color:#ddd;
+        }
+        
+.grid {
+    /*box-sizing: border-box;*/
+    border: 1px solid #c2c2c2 !important;
+}
+
+.grid .webix_cell
+{
+    white-space: nowrap;
+    vertical-align: middle !important;
+}
+
+.grid .webix_dtable_span
+{
+    font-size: small;
+    position: absolute;
+    /*background: #f2f2e6;*/
+    background-color: #f9f9f2;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: 1px solid #ddd !important;
+    border-bottom: 1px solid #ddd !important;
+}
+
+.grid .webix_dtable_span.webix_selected
+{
+    color: #444;
+    background-color: #ebebeb;
+}
+
+.grid .webix_hcell
+{
+    font-size: small;
+    white-space: nowrap;
+}
+
+.grid .webix_column
+{
+    font-size: small;
+    white-space: nowrap;
+}
+
+.grid .webix_column > div
+{
+    border-color:#ddd;
+}        
+
+		</style>
+		<script type="text/javascript" charset="utf-8">
+		webix.ready(function(){
+            if (!webix.env.touch && webix.ui.scrollSize)
+                webix.CustomScroll.init();    
+    
+			grid = webix.ui({
+				container:"testA",
+				view:"datatable",
+        css: "grid",
+        border: true,
+        leftSplit: 1,
+				columns:[
+					{ id:"rank",	header:"", css:"rank",  		width:50},
+					{ id:"title",	header:"Film title",width:200},
+					{ id:"year",	header:"Released" , width:80	},
+					{ id:"votes",	header:"Votes", 	width:100	}
+				],
+				data:small_film_set,
+				width: 300,
+				autoheight:true
+			});
+		})
+		
+		webix.ready(function(){
+			grid = webix.ui({
+				container:"testB",
+				view:"datatable",
+				css:"my_style",
+				columns:[
+					{ id:"rank",	header:"", css:"rank",  		width:50},
+					{ id:"title",	header:"Film title",width:200   },
+					{ id:"year",	header:"Released" , width:80	},
+					{ id:"votes",	header:"Votes", 	width:100	}
+				],
+				data:small_film_set,
+				autowidth:true,
+				autoheight:true
+			});			
+		});
+		</script>
+	</body>
+</html>

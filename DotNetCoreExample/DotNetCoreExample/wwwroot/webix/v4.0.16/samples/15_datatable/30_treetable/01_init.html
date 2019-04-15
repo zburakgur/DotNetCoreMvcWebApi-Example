@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic initialization</title>
+		<link rel="stylesheet" href="../../../codebase/webix.css" type="text/css" charset="utf-8">
+		<script src="../../../codebase/webix.js" type="text/javascript" charset="utf-8"></script>
+
+		<link rel="stylesheet" type="text/css" href="../common/samples.css">
+		<script src="../common/testdata.js" type="text/javascript" charset="utf-8"></script>
+
+     <style type="text/css">
+	.grid {
+		box-sizing: border-box;
+		border: 1px solid #c2c2c2 !important;
+	}
+
+.grid .webix_cell
+{
+    white-space: nowrap;
+    vertical-align: middle !important;
+}
+
+.grid .webix_dtable_span
+{
+    font-size: 13px;
+    position: absolute;
+    /*background: #f2f2e6;*/
+    background-color: #f9f9f2;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: 1px solid #ddd !important;
+    border-bottom: 1px solid #ddd !important;
+}
+
+.grid .webix_dtable_span.webix_selected
+{
+    color: #444;
+    background-color: #ebebeb;
+}
+
+.grid .webix_hcell
+{
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.grid .webix_column
+{
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.grid .webix_column > div
+{
+    border-color:#ddd;
+}
+
+	</style>
+
+
+	</head>
+	<body>
+		<div class='header_comment'>TreeTable Basic initialization</div>
+		<div class='sample_comment'>JSON</div>
+		<div id="testA"></div>
+	
+		
+		<script type="text/javascript" charset="utf-8">
+
+        webix.CustomScroll.init();
+
+		webix.ready(function(){
+			grida = webix.ui({
+				container:"testA",
+				view:"treetable",
+				css: "grid",
+				select: "row",
+				//leftSplit: 1,
+				resizeColumn: true,
+				columns:[
+					{ id:"id",	header:"", css:{"text-align":"right"},  	width:50},
+					{ id:"value",	header:"Film title",	width:250,
+						template:"{common.treetable()} #value#" },
+					{ id:"chapter",	header:"Mode",	width:200},
+                    { id: "l", header: "", fillspace: true}
+				],
+				width: 400,
+				height: 300,
+
+				data: [
+					{ "id":"1", "value":"The Shawshank Redemption", "open":true, "data":[
+						{ "id":"1.1", "value":"Part 1", "chapter":"alpha"},
+						{ "id":"1.2", "value":"Part 2", "chapter":"beta", "open":true, "data":[
+							{ "id":"1.2.1", "value":"Part 1", "chapter":"beta-twin"},
+							{ "id":"1.2.2", "value":"Part 1", "chapter":"beta-twin"}
+						]},
+						{ "id":"1.3", "value":"Part 3", "chapter":"gamma" }
+					]},
+					{ "id":"2", "value":"The Godfather", "data":[
+						{ "id":"2.1", "value":"Part 1", "chapter":"alpha" },
+						{ "id":"2.2", "value":"Part 2", "chapter":"beta" }
+					]}
+				]
+			});	
+		});
+		</script>
+	</body>
+</html>
